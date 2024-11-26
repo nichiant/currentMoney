@@ -1,11 +1,11 @@
 from currency_converter import CurrencyConverter
+from datetime import date
 from telebot import types
 import telebot
 
 bot = telebot.TeleBot('7654354061:AAE-XCqIPOxqgbhJ1QR4ZmjDG1bfEkmLhJA')
 currency = CurrencyConverter()
 amount = 0
-
 
 
 @bot.message_handler(commands=['start'])
@@ -26,7 +26,7 @@ def summa(message):
         markup = types.InlineKeyboardMarkup(row_width=2)
         btn1 = types.InlineKeyboardButton('USD/EUR', callback_data='usd/eur')
         btn2 = types.InlineKeyboardButton('EUR/USD', callback_data='eur/usd')
-        btn3 = types.InlineKeyboardButton('USD/GBP', callback_data='usd/gbp')
+        btn3 = types.InlineKeyboardButton('USD/PLN', callback_data='usd/pln')
         btn4 = types.InlineKeyboardButton('Другое значение', callback_data='else')
         markup.add(btn1, btn2, btn3, btn4)
         bot.send_message(message.chat.id, 'Выберите пару валют', reply_markup=markup)
